@@ -14,6 +14,7 @@
     ">0.25%, not ie 11"
   ],
   "dependencies": {
+    "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3"
