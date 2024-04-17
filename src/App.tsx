@@ -7,8 +7,12 @@ type AppProps = {
   title?: string;
 };
 
+// type ContextType = { user: User | null };
+// Use with: <Outlet context={{ user } satisfies ContextType} />
+
 function App({ title = "React + Vite" }: AppProps) {
   const [count, setCount] = useState(0);
+  // const [user, setUser] = useState<User | null>(null);
 
   return (
     <>
@@ -35,5 +39,9 @@ function App({ title = "React + Vite" }: AppProps) {
     </>
   );
 }
+
+// export function useUser() {
+//   return useOutletContext<ContextType>();
+// }
 
 export default App;
