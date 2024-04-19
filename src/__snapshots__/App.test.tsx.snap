@@ -5,16 +5,18 @@ exports[`renders main page 1`] = `
   <div>
     <a
       href="https://vitejs.dev"
+      rel="noreferrer"
       target="_blank"
     >
       <img
         alt="Vite logo"
         class="logo"
-        src="/vite.svg"
+        src="/public/vite.svg"
       />
     </a>
     <a
       href="https://react.dev"
+      rel="noreferrer"
       target="_blank"
     >
       <img
@@ -30,7 +32,9 @@ exports[`renders main page 1`] = `
   <div
     class="card"
   >
-    <button>
+    <button
+      type="button"
+    >
       count 
       0
     </button>

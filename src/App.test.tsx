@@ -1,8 +1,8 @@
-import { expect, test } from "vitest";
+import { ReactElement } from "react";
 import { render, screen } from "@testing-library/react";
+import { expect, test } from "vitest";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
-import { ReactElement } from "react";
 
 function setup(jsx: ReactElement) {
   // Use setup functions that compose together when you have a lot of tests

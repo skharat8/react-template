@@ -1,6 +1,23 @@
 import { useRouteError, isRouteErrorResponse } from "react-router-dom";
 
-function ErrorPage() {
+function getErrorMessage(error: unknown): string {
+  let msg: string;
+
+  if (isRouteErrorResponse(error)) {
+    msg = `${error.status} ${error.statusText}`;
+  } else if (error instanceof Error) {
+    msg = error.message;
+  } else if (typeof error === "string") {
+    msg = error;
+  } else {
+    console.error(error);
+    msg = "Unknown error";
+  }
+
+  return msg;
+}
+
+export default function ErrorPage() {
   const error = useRouteError();
 
   return (
@@ -13,18 +30,3 @@ function ErrorPage() {
     </div>
   );
 }
-
-function getErrorMessage(error: unknown): string {
-  if (isRouteErrorResponse(error)) {
-    return `${error.status} ${error.statusText}`;
-  } else if (error instanceof Error) {
-    return error.message;
-  } else if (typeof error === "string") {
-    return error;
-  } else {
-    console.error(error);
-    return "Unknown error";
-  }
-}
-
-export default ErrorPage;

@@ -1,32 +1,28 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import viteLogo from "../public/vite.svg";
 import "./App.css";
 
-type AppProps = {
-  title?: string;
-};
-
-// type ContextType = { user: User | null };
-// Use with: <Outlet context={{ user } satisfies ContextType} />
-
-function App({ title = "React + Vite" }: AppProps) {
+export default function App({ title }: AppProps) {
   const [count, setCount] = useState(0);
   // const [user, setUser] = useState<User | null>(null);
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>{title}</h1>
       <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
+        <button
+          type="button"
+          onClick={() => setCount(prevCount => prevCount + 1)}
+        >
           count {count}
         </button>
         <p>
@@ -40,8 +36,17 @@ function App({ title = "React + Vite" }: AppProps) {
   );
 }
 
+type AppProps = {
+  title?: string;
+};
+
+App.defaultProps = {
+  title: "React + Vite",
+};
+
+// type ContextType = { user: User | null };
+// Use with: <Outlet context={{ user } satisfies ContextType} />
+
 // export function useUser() {
 //   return useOutletContext<ContextType>();
 // }
-
-export default App;
