@@ -11,7 +11,7 @@ exports[`renders main page 1`] = `
       <img
         alt="Vite logo"
         class="logo"
-        src="/public/vite.svg"
+        src="/src/assets/vite.svg"
       />
     </a>
     <a
