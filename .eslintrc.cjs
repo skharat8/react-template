@@ -17,7 +17,17 @@ module.exports = {
     "prettier",
   ],
   settings: {
-    "import/resolver": { typescript: true, node: true },
+    "import/resolver": {
+      typescript: true,
+      node: true,
+      alias: {
+        map: [
+          ["@", "./src"],
+          ["@assets", "./src/assets"],
+          ["@components", "./src/components"],
+        ],
+      },
+    },
   },
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
