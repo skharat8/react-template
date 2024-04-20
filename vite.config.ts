@@ -11,6 +11,12 @@ export default defineConfig({
       "@components": "/src/components",
     },
   },
+  css: {
+    transformer: "lightningcss",
+  },
+  build: {
+    cssMinify: "lightningcss",
+  },
   test: {
     globals: true,
     environment: "jsdom",
