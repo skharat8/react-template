@@ -11,7 +11,7 @@ exports[`renders main page 1`] = `
       <img
         alt="Vite logo"
         class="logo"
-        src="/src/assets/vite.svg"
+        src="/src/assets/images/vite.svg"
       />
     </a>
     <a
@@ -22,7 +22,7 @@ exports[`renders main page 1`] = `
       <img
         alt="React logo"
         class="logo react"
-        src="/src/assets/react.svg"
+        src="/src/assets/images/react.svg"
       />
     </a>
   </div>

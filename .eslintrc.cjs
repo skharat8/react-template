@@ -1,3 +1,5 @@
+const alias = require("./alias.cjs");
+
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -21,11 +23,7 @@ module.exports = {
       typescript: true,
       node: true,
       alias: {
-        map: [
-          ["@", "./src"],
-          ["@assets", "./src/assets"],
-          ["@components", "./src/components"],
-        ],
+        map: alias.aliasArray,
       },
     },
   },
@@ -47,5 +45,13 @@ module.exports = {
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     "no-console": ["error", { allow: ["warn", "error"] }],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+
+    // Disable ForOfStatement rule, since that disallows for of loops.
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement",
+    ],
   },
 };
