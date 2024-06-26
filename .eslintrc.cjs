@@ -31,11 +31,12 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
+    ecmaFeatures: { jsx: true },
     sourceType: "module",
     project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-  plugins: ["import", "react-refresh", "@typescript-eslint"],
+  plugins: ["import", "react", "react-refresh", "@typescript-eslint"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -44,7 +45,7 @@ module.exports = {
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     "no-console": ["error", { allow: ["warn", "error"] }],
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/consistent-type-definitions": "off",
 
     // Disable ForOfStatement rule, since that disallows for of loops.
     "no-restricted-syntax": [
@@ -52,6 +53,23 @@ module.exports = {
       "ForInStatement",
       "LabeledStatement",
       "WithStatement",
+    ],
+
+    // Allow underscore in front of variables
+    "no-underscore-dangle": "off",
+
+    // Ignore unused variables with an underscore in front
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+      },
     ],
   },
 };

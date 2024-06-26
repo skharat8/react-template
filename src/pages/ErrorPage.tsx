@@ -17,7 +17,7 @@ function getErrorMessage(error: unknown): string {
   return msg;
 }
 
-export default function ErrorPage() {
+function ErrorPage() {
   const error = useRouteError();
 
   return (
@@ -30,3 +30,5 @@ export default function ErrorPage() {
     </div>
   );
 }
+
+export default ErrorPage;
