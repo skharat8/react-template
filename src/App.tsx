@@ -1,4 +1,4 @@
-import logo from "@images/phoenix-logo-96.png";
+import logo from "@images/app-logo-96x96.png";
 import AuthPage from "./pages/AuthPage";
 import "./App.css";
 
@@ -6,7 +6,7 @@ function App() {
   // const [user, setUser] = useState<User | null>(null);
   return (
     <>
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="Main App Logo" />
       <AuthPage />;
     </>
   );
