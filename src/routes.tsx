@@ -1,8 +1,7 @@
 import App from "./App";
 
 const routes = [
-  { path: "/", element: <App authType="login" /> },
-  { path: "/register", element: <App authType="signup" /> },
+  { path: "/", element: <App /> },
 
   // {
   //   element: <AppLayout />,

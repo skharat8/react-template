@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import AuthType from "@data/types";
 
-function AuthLink({ authType }: AuthLinkProps) {
+function AuthLink({ authType, onAuthToggle }: AuthLinkProps) {
   const linkTo = authType === "signup" ? "Login" : "Register";
 
   return (
@@ -8,7 +8,13 @@ function AuthLink({ authType }: AuthLinkProps) {
       <div className="login-register-link">
         <p>
           {authType === "signup" ? "Already" : "Don't"} have an account?{" "}
-          <Link to={authType === "signup" ? "/" : "register"}>{linkTo}</Link>
+          <button
+            type="button"
+            className="button-link auth-link"
+            onClick={onAuthToggle}
+          >
+            {linkTo}
+          </button>
         </p>
       </div>
     </div>
@@ -16,7 +22,8 @@ function AuthLink({ authType }: AuthLinkProps) {
 }
 
 type AuthLinkProps = {
-  authType: string;
+  authType: AuthType;
+  onAuthToggle: () => void;
 };
 
 export default AuthLink;

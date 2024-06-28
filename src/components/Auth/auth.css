@@ -49,7 +49,6 @@
 .form-input .icon {
   position: absolute;
   left: 15px;
-  width: 1em;
   height: var(--form-element-height);
 }
 
@@ -62,16 +61,29 @@
   outline: none;
 }
 
-/* Buttons */
-:is(.button-link:hover, .button-link:focus) {
+/* Buttons and Links */
+.login-register-button:hover {
+  background-color: var(--fire-red);
+}
+.login-register-button:hover,
+.login-register-button:focus {
+  border-color: var(--primary-color);
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.guest-button-link {
+  height: var(--form-element-height);
+  font-size: 1.45rem;
+  background-color: transparent;
+  border: 3px dotted var(--nearly-black);
+  padding: 0.6em 1.2em;
+}
+.guest-button-link:hover,
+.guest-button-link:focus {
   color: purple;
   background-color: plum;
   font-weight: 600;
   border-color: var(--secondary-color);
   box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.2);
   outline: none;
-}
-
-.login-register-button:hover {
-  background-color: var(--fire-red);
 }

@@ -1,9 +1,10 @@
+import AuthType from "@data/types";
 import Signup from "./Signup";
 import Login from "./Login";
 import "./auth.css";
 import AuthLink from "./AuthLink";
 
-function AuthForm({ authType }: AuthProps) {
+function AuthForm({ authType, onAuthToggle }: AuthProps) {
   return (
     <div className="auth-container">
       <h2 className="auth-header">{authType}</h2>
@@ -14,7 +15,7 @@ function AuthForm({ authType }: AuthProps) {
         <Login />
 
         {authType === "login" && (
-          <button type="button" className="button-link">
+          <button type="button" className="guest-button-link">
             Demo the app with a guest login?
           </button>
         )}
@@ -23,14 +24,15 @@ function AuthForm({ authType }: AuthProps) {
           {authType}
         </button>
 
-        <AuthLink authType={authType} />
+        <AuthLink authType={authType} onAuthToggle={onAuthToggle} />
       </form>
     </div>
   );
 }
 
 type AuthProps = {
-  authType: string;
+  authType: AuthType;
+  onAuthToggle: () => void;
 };
 
 export default AuthForm;

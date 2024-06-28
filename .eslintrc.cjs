@@ -71,5 +71,8 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+
+    // Allow passing functions as props (without having to memoize)
+    "react/jsx-no-bind": ["error", { allowFunctions: true }],
   },
 };
