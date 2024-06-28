@@ -1,0 +1,77 @@
+.auth-container {
+  width: 420px;
+  border-radius: 20px;
+  color: var(--nearly-black);
+  padding: 1.6em 2em;
+  background-color: var(--light-accent);
+  text-align: center;
+  box-shadow: 0 0 10px 4px rgba(182, 59, 99, 0.5);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-header {
+  color: var(--primary-color);
+}
+
+.divider {
+  width: 15%;
+  height: 3px;
+  margin: 0.3em auto 0.7em;
+  background-color: var(--primary-color);
+}
+
+/* Form */
+.form-input {
+  --form-element-height: 2.5em;
+
+  position: relative;
+  height: var(--form-element-height);
+}
+
+.form-input input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 8px;
+  border-style: solid;
+  padding-left: 40px;
+}
+
+.form-input input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form-input .icon {
+  position: absolute;
+  left: 15px;
+  width: 1em;
+  height: var(--form-element-height);
+}
+
+.form-input .icon.lock {
+  width: 1.1em;
+}
+
+.form-input input:focus {
+  border: 2px solid var(--primary-color);
+  outline: none;
+}
+
+/* Buttons */
+:is(.button-link:hover, .button-link:focus) {
+  color: purple;
+  background-color: plum;
+  font-weight: 600;
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.login-register-button:hover {
+  background-color: var(--fire-red);
+}

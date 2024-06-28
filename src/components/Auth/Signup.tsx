@@ -1,12 +1,16 @@
-import { FaUser } from "react-icons/fa";
+import { RiUser3Fill } from "react-icons/ri";
 
 export default function Signup() {
   return (
-    <div className="form">
-      <div className="input">
-        <FaUser />
-        <input type="text" />
-      </div>
+    <div className="form-input">
+      <RiUser3Fill className="icon" />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username"
+        required
+      />
     </div>
   );
 }

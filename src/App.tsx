@@ -1,20 +1,21 @@
 import logo from "@images/app-logo-96x96.png";
-import AuthPage from "./pages/AuthPage";
+import AuthForm from "./components/Auth/AuthForm";
 import "./App.css";
 
-function App() {
+function App({ authType }: AppProps) {
   // const [user, setUser] = useState<User | null>(null);
   return (
-    <>
-      <img src={logo} alt="Main App Logo" />
-      <AuthPage />;
-    </>
+    <div className="container">
+      <h1>A modern Twitter experience</h1>
+      <img className="logo" src={logo} alt="Main App Logo" />
+      <AuthForm authType={authType} />;
+    </div>
   );
 }
 
-// type AppProps = {
-//   title?: string;
-// };
+type AppProps = {
+  authType: string;
+};
 
 // App.defaultProps = {
 //   title: "Sign Up",
