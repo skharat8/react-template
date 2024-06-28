@@ -1,6 +1,6 @@
 import { RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 
-export default function Login() {
+export default function Login({ formData, handleChange }: LoginProps) {
   return (
     <>
       <div className="form-input">
@@ -11,6 +11,8 @@ export default function Login() {
           name="email"
           placeholder="Email"
           autoComplete="email"
+          value={formData.email}
+          onChange={handleChange}
           required
         />
       </div>
@@ -22,9 +24,16 @@ export default function Login() {
           id="password"
           name="password"
           placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
           required
         />
       </div>
     </>
   );
 }
+
+type LoginProps = {
+  formData: object;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
