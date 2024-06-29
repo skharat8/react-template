@@ -1,61 +1,94 @@
-import { useState } from "react";
-import AuthType from "@data/types";
-import Signup from "./Signup";
-import Login from "./Login";
-import "./auth.css";
-import AuthLink from "./AuthLink";
+import { useRef } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { RiUser3Fill, RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 
-function AuthForm() {
-  const [authType, setAuthType] = useState<AuthType>("login");
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+import { userLoginSchema, userSignupSchema } from "@schemas/auth.zod";
+import type { UserLogin, UserSignup } from "@schemas/auth.zod";
+import type AuthType from "@data/types";
+
+function AuthForm({ authType }: AuthFormProps) {
+  const validationSchema =
+    authType === "login" ? userLoginSchema : userSignupSchema;
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    clearErrors,
+    formState: { errors },
+  } = useForm<UserSignup>({
+    resolver: zodResolver(validationSchema),
   });
 
-  function onAuthToggle() {
-    setAuthType(prevAuthType =>
-      prevAuthType === "login" ? "signup" : "login"
-    );
+  const loginButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  function onSubmit(data: UserLogin | UserSignup) {
+    console.log(data);
   }
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    const { name, value, type, checked } = event.target;
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  }
-
-  function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
+  function handleGuestLogin() {
+    clearErrors("email");
+    clearErrors("password");
+    setValue("email", "guest@gmail.com");
+    setValue("password", "guest_password");
+    loginButtonRef.current?.click();
   }
 
   return (
-    <div className="auth-container">
-      <h2 className="auth-header">{authType}</h2>
-      <div className="divider" />
+    <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+      {authType === "signup" && (
+        <div className="form-input">
+          <RiUser3Fill className="icon" />
+          <input {...register("username")} type="text" placeholder="Username" />
+          <p className="error-message">{errors.username?.message}</p>
+        </div>
+      )}
 
-      <form className="form-container" onSubmit={handleSubmit}>
-        {authType === "signup" && (
-          <Signup formData={formData} handleChange={handleChange} />
-        )}
-        <Login formData={formData} handleChange={handleChange} />
+      <div className="form-input">
+        <RiMailFill className="icon" />
+        <input
+          {...register("email")}
+          type="email"
+          placeholder="Email"
+          autoComplete="email"
+        />
+        <p className="error-message">{errors.email?.message}</p>
+      </div>
 
-        {authType === "login" && (
-          <button type="button" className="guest-button-link">
-            Demo the app with a guest login?
-          </button>
-        )}
+      <div className="form-input">
+        <RiLockPasswordFill className="icon lock" />
+        <input
+          {...register("password")}
+          type="password"
+          placeholder="Password"
+        />
+        <p className="error-message">{errors.password?.message}</p>
+      </div>
 
-        <button type="submit" className="login-register-button">
-          {authType}
+      {authType === "login" && (
+        <button
+          type="button"
+          className="guest-button-link"
+          onClick={handleGuestLogin}
+        >
+          Demo the app with a guest login?
         </button>
+      )}
 
-        <AuthLink authType={authType} onAuthToggle={onAuthToggle} />
-      </form>
-    </div>
+      <button
+        type="submit"
+        className="login-register-button"
+        ref={loginButtonRef}
+      >
+        {authType}
+      </button>
+    </form>
   );
 }
+
+type AuthFormProps = {
+  authType: AuthType;
+};
 
 export default AuthForm;

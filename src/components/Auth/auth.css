@@ -39,7 +39,7 @@
   background: transparent;
   border-radius: 8px;
   border-style: solid;
-  padding-left: 40px;
+  padding-left: 2.5em;
 }
 
 .form-input input::placeholder {
@@ -61,7 +61,19 @@
   outline: none;
 }
 
+.error-message {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: firebrick;
+  text-align: left;
+  padding-left: 0.2em;
+}
+
 /* Buttons and Links */
+.login-register-button {
+  margin-bottom: 0.2em;
+}
+
 .login-register-button:hover {
   background-color: var(--fire-red);
 }

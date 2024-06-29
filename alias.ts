@@ -19,6 +19,7 @@ const aliasObject: AliasObject = {
   "@context": "/src/context",
   "@data": "/src/data",
   "@hooks": "/src/hooks",
+  "@schemas": "/src/schemas",
   "@services": "/src/services",
   "@utils": "/src/utils",
 };

@@ -27,7 +27,7 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "alias.cjs"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
@@ -72,7 +72,16 @@ module.exports = {
       },
     ],
 
+    // Ignore error due to react-hook-form handleSubmit
+    // Resolution based on: https://github.com/orgs/react-hook-form/discussions/8622#discussioncomment-4060570
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      { checksVoidReturn: { attributes: false } },
+    ],
+
     // Allow passing functions as props (without having to memoize)
     "react/jsx-no-bind": ["error", { allowFunctions: true }],
+    // Allow prop spreading on input elements when using react-hook-form
+    "react/jsx-props-no-spreading": ["error", { exceptions: ["input"] }],
   },
 };

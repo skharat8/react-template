@@ -1,5 +1,5 @@
 import logo from "@images/app-logo-96x96.png";
-import AuthForm from "./components/Auth/AuthForm";
+import AuthForm from "./pages/AuthPage";
 import "./App.css";
 
 function App() {
