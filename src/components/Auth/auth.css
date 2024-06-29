@@ -69,6 +69,17 @@
   padding-left: 0.2em;
 }
 
+.network-error-message {
+  align-self: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: italic;
+  color: firebrick;
+  background-color: #8c91f0;
+  border-radius: 5px;
+  padding: 0.2em 0.4em;
+}
+
 /* Buttons and Links */
 .login-register-button {
   margin-bottom: 0.2em;

@@ -1,11 +1,14 @@
-import { useRef } from "react";
+import axios from "axios";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RiUser3Fill, RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 
 import { userLoginSchema, userSignupSchema } from "@schemas/auth.zod";
-import type { UserLogin, UserSignup } from "@schemas/auth.zod";
+import type { UserSignup } from "@schemas/auth.zod";
 import type AuthType from "@data/types";
+import * as Api from "@services/api";
 
 function AuthForm({ authType }: AuthFormProps) {
   const validationSchema =
@@ -22,9 +25,25 @@ function AuthForm({ authType }: AuthFormProps) {
   });
 
   const loginButtonRef = useRef<HTMLButtonElement | null>(null);
+  const [failedRequest, setFailedRequest] = useState("");
+  const navigate = useNavigate();
 
-  function onSubmit(data: UserLogin | UserSignup) {
-    console.log(data);
+  async function onSubmit(data: UserSignup) {
+    try {
+      if (authType === "signup") {
+        await Api.createUser(data);
+        navigate("/");
+      } else {
+        await Api.createUserSession(data);
+        navigate("/home");
+      }
+    } catch (e) {
+      if (axios.isAxiosError(e)) {
+        setFailedRequest(e.message);
+      } else if (e instanceof Error) {
+        console.error(e.message);
+      }
+    }
   }
 
   function handleGuestLogin() {
@@ -37,6 +56,9 @@ function AuthForm({ authType }: AuthFormProps) {
 
   return (
     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+      {failedRequest !== "" && (
+        <p className="network-error-message">{failedRequest}</p>
+      )}
       {authType === "signup" && (
         <div className="form-input">
           <RiUser3Fill className="icon" />
