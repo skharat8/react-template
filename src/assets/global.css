@@ -18,6 +18,9 @@
   --link-color-hover: #535bf2;
   --alternate-white: #f5f9ee;
 
+  --card-padding-top-bottom: 1.6em;
+  --card-padding-left-right: 2em;
+
   --nearly-white: rgba(255, 255, 255, 0.87);
   --nearly-black: #242424;
 }
@@ -47,6 +50,22 @@ body {
   width: 90%;
   max-width: 640px;
   margin: 0 auto;
+}
+
+.error-page-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-accent);
+  padding: var(--card-padding-top-bottom) var(--card-padding-left-right);
+  border-radius: 10px;
+}
+
+.global-error-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: firebrick;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 /* TYPOGRAPHY */

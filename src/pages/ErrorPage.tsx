@@ -1,4 +1,8 @@
-import { useRouteError, isRouteErrorResponse } from "react-router-dom";
+import {
+  useRouteError,
+  isRouteErrorResponse,
+  useNavigate,
+} from "react-router-dom";
 
 function getErrorMessage(error: unknown): string {
   let msg: string;
@@ -19,14 +23,24 @@ function getErrorMessage(error: unknown): string {
 
 function ErrorPage() {
   const error = useRouteError();
+  const navigate = useNavigate();
+
+  function navigateBack() {
+    navigate(-1);
+  }
 
   return (
-    <div className="error-page">
+    <div className="error-page-container">
       <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
+
+      <p>Sorry, an unexpected error has occurred</p>
+      <p className="global-error-message">
         <i>{getErrorMessage(error)}</i>
       </p>
+
+      <button type="button" onClick={navigateBack}>
+        Go Back
+      </button>
     </div>
   );
 }
