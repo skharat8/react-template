@@ -10,8 +10,14 @@ const userSignupSchema = z.object({
 
 const userLoginSchema = userSignupSchema.omit({ username: true });
 
+const userSchema = userSignupSchema.omit({ password: true }).extend({
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+});
+
 type UserLogin = z.infer<typeof userLoginSchema>;
 type UserSignup = z.infer<typeof userSignupSchema>;
+type User = z.infer<typeof userSchema>;
 
-export type { UserLogin, UserSignup };
-export { userLoginSchema, userSignupSchema };
+export type { UserLogin, UserSignup, User };
+export { userLoginSchema, userSignupSchema, userSchema };
