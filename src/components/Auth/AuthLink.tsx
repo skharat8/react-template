@@ -6,7 +6,7 @@ function AuthLink({ authType, onAuthToggle }: AuthLinkProps) {
   return (
     <p>
       {authType === "signup" ? "Already" : "Don't"} have an account?{" "}
-      <button type="button" className="button-link" onClick={onAuthToggle}>
+      <button type="button" className="btn-link" onClick={onAuthToggle}>
         {linkTo}
       </button>
     </p>

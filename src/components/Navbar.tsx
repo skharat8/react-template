@@ -1,5 +1,5 @@
-function Footer() {
-  return <div>Footer</div>;
+function Navbar() {
+  return <div>Navbar</div>;
 }
 
-export default Footer;
+export default Navbar;

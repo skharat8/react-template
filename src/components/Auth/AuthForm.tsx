@@ -26,6 +26,7 @@ function AuthForm({ authType }: AuthFormProps) {
   });
 
   const loginButtonRef = useRef<HTMLButtonElement | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
   const [failedRequest, setFailedRequest] = useState("");
   const navigate = useNavigate();
 
@@ -53,6 +54,10 @@ function AuthForm({ authType }: AuthFormProps) {
     setValue("email", "guest@gmail.com");
     setValue("password", "guest_password");
     loginButtonRef.current?.click();
+  }
+
+  function toggleShowPassword() {
+    setShowPassword(prevShowPassword => !prevShowPassword);
   }
 
   return (
@@ -83,9 +88,17 @@ function AuthForm({ authType }: AuthFormProps) {
         <RiLockPasswordFill className={`${styles.icon} ${styles.lock}`} />
         <input
           {...register("password")}
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder="Password"
         />
+        <button
+          type="button"
+          className={styles.showPasswordBtn}
+          onClick={toggleShowPassword}
+        >
+          {showPassword ? "Hide" : "Show"}
+        </button>
+
         <p className={styles.errorMessage}>{errors.password?.message}</p>
       </div>
 

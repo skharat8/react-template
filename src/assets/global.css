@@ -96,7 +96,6 @@ button {
   font-size: 1.8rem;
   font-weight: 600;
   font-family: inherit;
-  background-color: var(--fire-orange);
   cursor: pointer;
   transition: all 0.25s;
   padding: 0.6em 1.2em;
@@ -105,7 +104,7 @@ button {
   outline: none;
 }
 
-.button-link {
+.btn-link {
   font-size: 1.6rem;
   font-weight: 500;
   background: none;
@@ -113,8 +112,8 @@ button {
   padding: 0;
   color: var(--link-color);
 }
-.button-link:hover,
-.button-link:focus {
+.btn-link:hover,
+.btn-link:focus {
   color: var(--link-color-hover);
 }
 
