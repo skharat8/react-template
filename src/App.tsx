@@ -1,6 +1,6 @@
 import logo from "@images/app-logo-96x96.png";
 import AuthForm from "./pages/AuthPage";
-import "./App.css";
+import styles from "./App.module.css";
 
 function App() {
   // const [user, setUser] = useState<User | null>(null);
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="container">
       <h1>A modern Twitter experience</h1>
-      <img className="logo" src={logo} alt="Main App Logo" />
+      <img className={styles.logo} src={logo} alt="Main App Logo" />
       <AuthForm />;
     </div>
   );

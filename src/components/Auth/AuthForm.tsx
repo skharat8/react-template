@@ -9,6 +9,7 @@ import { userLoginSchema, userSignupSchema } from "@schemas/auth.zod";
 import type { UserSignup } from "@schemas/auth.zod";
 import type AuthType from "@data/types";
 import * as Api from "@services/api";
+import styles from "./Auth.module.css";
 
 function AuthForm({ authType }: AuthFormProps) {
   const validationSchema =
@@ -55,43 +56,43 @@ function AuthForm({ authType }: AuthFormProps) {
   }
 
   return (
-    <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
       {failedRequest !== "" && (
-        <p className="network-error-message">{failedRequest}</p>
+        <p className={styles.networkErrorMessage}>{failedRequest}</p>
       )}
       {authType === "signup" && (
-        <div className="form-input">
-          <RiUser3Fill className="icon" />
+        <div className={styles.formInput}>
+          <RiUser3Fill className={styles.icon} />
           <input {...register("username")} type="text" placeholder="Username" />
-          <p className="error-message">{errors.username?.message}</p>
+          <p className={styles.errorMessage}>{errors.username?.message}</p>
         </div>
       )}
 
-      <div className="form-input">
-        <RiMailFill className="icon" />
+      <div className={styles.formInput}>
+        <RiMailFill className={styles.icon} />
         <input
           {...register("email")}
           type="email"
           placeholder="Email"
           autoComplete="email"
         />
-        <p className="error-message">{errors.email?.message}</p>
+        <p className={styles.errorMessage}>{errors.email?.message}</p>
       </div>
 
-      <div className="form-input">
-        <RiLockPasswordFill className="icon lock" />
+      <div className={styles.formInput}>
+        <RiLockPasswordFill className={`${styles.icon} ${styles.lock}`} />
         <input
           {...register("password")}
           type="password"
           placeholder="Password"
         />
-        <p className="error-message">{errors.password?.message}</p>
+        <p className={styles.errorMessage}>{errors.password?.message}</p>
       </div>
 
       {authType === "login" && (
         <button
           type="button"
-          className="guest-button-link"
+          className={styles.guestButtonLink}
           onClick={handleGuestLogin}
         >
           Demo the app with a guest login?
@@ -100,7 +101,7 @@ function AuthForm({ authType }: AuthFormProps) {
 
       <button
         type="submit"
-        className="login-register-button"
+        className={styles.loginRegisterButton}
         ref={loginButtonRef}
       >
         {authType}
