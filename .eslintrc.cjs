@@ -83,5 +83,33 @@ module.exports = {
     "react/jsx-no-bind": ["error", { allowFunctions: true }],
     // Allow prop spreading on input elements when using react-hook-form
     "react/jsx-props-no-spreading": ["error", { exceptions: ["input"] }],
+
+    "import/no-restricted-paths": [
+      "error",
+      {
+        zones: [
+          // Enforce unidirectional codebase
+          // e.g. src/features is not allowed to imports from src/pages
+          {
+            target: "./src/features",
+            from: "./src/pages",
+          },
+
+          {
+            target: [
+              "./src/components",
+              "./src/context",
+              "./src/data",
+              "./src/hooks",
+              "./src/layouts",
+              "./src/schemas",
+              "./src/services",
+              "./src/utils",
+            ],
+            from: ["./src/features", "./src/pages"],
+          },
+        ],
+      },
+    ],
   },
 };

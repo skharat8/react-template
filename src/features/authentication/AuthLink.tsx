@@ -1,4 +1,4 @@
-import type AuthType from "@data/types";
+import type { AuthType } from "@/data/types";
 
 function AuthLink({ authType, onAuthToggle }: AuthLinkProps) {
   const linkTo = authType === "signup" ? "Login" : "Register";

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import type AuthType from "@data/types";
-import AuthForm from "@components/Auth/AuthForm";
-import AuthLink from "@components/Auth/AuthLink";
-import styles from "@components/Auth/Auth.module.css";
 
-function AuthPage() {
+import type { AuthType } from "@/data/types";
+import AuthForm from "./AuthForm";
+import AuthLink from "./AuthLink";
+import styles from "./Auth.module.css";
+
+function Auth() {
   const [authType, setAuthType] = useState<AuthType>("login");
 
   function onAuthToggle() {
@@ -23,4 +24,4 @@ function AuthPage() {
   );
 }
 
-export default AuthPage;
+export default Auth;

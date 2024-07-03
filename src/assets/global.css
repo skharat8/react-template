@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+@font-face {
+  font-family: "chocolateWithBrownie";
+  src: url(./fonts/chocolate-with-brownie.ttf);
+}
+
 :root {
   font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 62.5%;
@@ -43,7 +48,7 @@ body {
   background-color: var(--primary-color);
 }
 
-.container {
+.centered-container {
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -68,6 +73,24 @@ body {
   text-align: center;
 }
 
+.logo {
+  width: 13rem;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--secondary-color));
+  transform: scale(1.1);
+}
+
+.main-title {
+  font-family: chocolateWithBrownie;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
 /* TYPOGRAPHY */
 
 h1 {
@@ -87,7 +110,6 @@ a {
   color: var(--link-color);
   text-decoration: inherit;
 }
-
 a:hover {
   color: var(--link-color-hover);
 }
@@ -96,6 +118,7 @@ button {
   font-size: 1.8rem;
   font-weight: 600;
   font-family: inherit;
+  background-color: var(--fire-orange);
   cursor: pointer;
   transition: all 0.25s;
   padding: 0.6em 1.2em;

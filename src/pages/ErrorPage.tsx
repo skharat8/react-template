@@ -3,11 +3,15 @@ import {
   isRouteErrorResponse,
   useNavigate,
 } from "react-router-dom";
+import axios from "axios";
+import type { ResponseError } from "@/data/types";
 
 function getErrorMessage(error: unknown): string {
   let msg: string;
 
-  if (isRouteErrorResponse(error)) {
+  if (axios.isAxiosError<ResponseError>(error)) {
+    msg = error.response?.data.error ?? error.message;
+  } else if (isRouteErrorResponse(error)) {
     msg = `${error.status} ${error.statusText}`;
   } else if (error instanceof Error) {
     msg = error.message;
@@ -31,7 +35,7 @@ function ErrorPage() {
 
   return (
     <div className="error-page-container">
-      <h1>Oops!</h1>
+      <h1 className="main-title">Oops!</h1>
 
       <p>Sorry, an unexpected error has occurred</p>
       <p className="global-error-message">

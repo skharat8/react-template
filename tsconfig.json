@@ -22,17 +22,11 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Alias */
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@images/*": ["assets/images/*"],
-      "@fonts/*": ["assets/fonts/*"],
-      "@components/*": ["components/*"],
-      "@context/*": ["context/*"],
-      "@data/*": ["data/*"],
-      "@hooks/*": ["hooks/*"],
-      "@schemas/*": ["schemas/*"],
-      "@services/*": ["services/*"],
-      "@utils/*": ["utils/*"]
+      "@/*": ["src/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@fonts/*": ["src/assets/fonts/*"]
     }
   },
   "include": ["src"],

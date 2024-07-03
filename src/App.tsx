@@ -1,24 +1,26 @@
-import logo from "@images/app-logo-96x96.png";
-import AuthForm from "./pages/AuthPage";
-import styles from "./App.module.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import AppLayout from "./layouts/AppLayout";
+import ErrorPage from "./pages/ErrorPage";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+
+const router = createBrowserRouter([
+  { path: "/login", element: <Login />, errorElement: <ErrorPage /> },
+
+  {
+    element: <AppLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/", element: <Home />, errorElement: <ErrorPage /> },
+      { path: "/profile", element: <Profile />, errorElement: <ErrorPage /> },
+    ],
+  },
+]);
 
 function App() {
-  // const [user, setUser] = useState<User | null>(null);
-
-  return (
-    <div className="container">
-      <h1>A modern Twitter experience</h1>
-      <img className={styles.logo} src={logo} alt="Main App Logo" />
-      <AuthForm />;
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
-
-// type ContextType = { user: User | null };
-// Use with: <Outlet context={{ user } satisfies ContextType} />
-
-// export function useUser() {
-//   return useOutletContext<ContextType>();
-// }

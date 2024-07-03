@@ -5,10 +5,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RiUser3Fill, RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 
-import { userLoginSchema, userSignupSchema } from "@schemas/auth.zod";
-import type { UserSignup } from "@schemas/auth.zod";
-import type AuthType from "@data/types";
-import * as Api from "@services/api";
+import * as AuthApi from "@/services/apiAuth";
+import { userLoginSchema, userSignupSchema } from "@/schemas/auth.zod";
+import type { User, UserSignup } from "@/schemas/auth.zod";
+import type { AuthType, ResponseError } from "@/data/types";
 import styles from "./Auth.module.css";
 
 function AuthForm({ authType }: AuthFormProps) {
@@ -27,21 +27,23 @@ function AuthForm({ authType }: AuthFormProps) {
 
   const loginButtonRef = useRef<HTMLButtonElement | null>(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [failedRequest, setFailedRequest] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   async function onSubmit(data: UserSignup) {
     try {
+      let user: User;
+
       if (authType === "signup") {
-        await Api.createUser(data);
-        navigate("/");
+        user = await AuthApi.createUser(data);
       } else {
-        await Api.createUserSession(data);
-        navigate("/home");
+        user = await AuthApi.createUserSession(data);
       }
+
+      navigate("/");
     } catch (e) {
-      if (axios.isAxiosError(e)) {
-        setFailedRequest(e.message);
+      if (axios.isAxiosError<ResponseError>(e)) {
+        setError(e.response?.data.error ?? e.message);
       } else if (e instanceof Error) {
         console.error(e.message);
       }
@@ -62,9 +64,7 @@ function AuthForm({ authType }: AuthFormProps) {
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
-      {failedRequest !== "" && (
-        <p className={styles.networkErrorMessage}>{failedRequest}</p>
-      )}
+      {error && <p className={styles.networkErrorMessage}>{error}</p>}
       {authType === "signup" && (
         <div className={styles.formInput}>
           <RiUser3Fill className={styles.icon} />

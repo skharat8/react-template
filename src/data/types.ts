@@ -1,3 +1,2 @@
-type AuthType = "login" | "signup";
-
-export default AuthType;
+export type AuthType = "login" | "signup";
+export type ResponseError = { error: string };
