@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -8,7 +7,7 @@ import { RiUser3Fill, RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 import * as AuthApi from "@/services/apiAuth";
 import { userLoginSchema, userSignupSchema } from "@/schemas/auth.zod";
 import type { User, UserSignup } from "@/schemas/auth.zod";
-import type { AuthType, ResponseError } from "@/data/types";
+import type { AuthType } from "@/data/types";
 import styles from "./Auth.module.css";
 
 function AuthForm({ authType }: AuthFormProps) {
@@ -42,11 +41,7 @@ function AuthForm({ authType }: AuthFormProps) {
 
       navigate("/");
     } catch (e) {
-      if (axios.isAxiosError<ResponseError>(e)) {
-        setError(e.response?.data.error ?? e.message);
-      } else if (e instanceof Error) {
-        console.error(e.message);
-      }
+      if (e instanceof Error) setError(e.message);
     }
   }
 
