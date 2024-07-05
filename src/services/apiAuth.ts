@@ -7,6 +7,7 @@ const api = createAxiosInstance();
 
 export async function createUser(data: UserSignup): Promise<User> {
   const res = await api.post("api/users", data);
+  // TODO: Handle displaying zod errors
   return userSchema.parse(res.data);
 }
 

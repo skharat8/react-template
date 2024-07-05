@@ -1,14 +1,15 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RiUser3Fill, RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 
-import * as AuthApi from "@/services/apiAuth";
+import SpinnerMini from "@/components/SpinnerMini";
 import { userLoginSchema, userSignupSchema } from "@/schemas/auth.zod";
-import type { User, UserSignup } from "@/schemas/auth.zod";
+import type { UserSignup } from "@/schemas/auth.zod";
 import type { AuthType } from "@/data/types";
 import styles from "./Auth.module.css";
+import useLogin from "./useLogin";
+import useSignup from "./useSignup";
 
 function AuthForm({ authType }: AuthFormProps) {
   const validationSchema =
@@ -25,23 +26,15 @@ function AuthForm({ authType }: AuthFormProps) {
   });
 
   const loginButtonRef = useRef<HTMLButtonElement | null>(null);
+  const { login, isLoginPending } = useLogin();
+  const { signup, isSignupPending } = useSignup();
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate();
 
-  async function onSubmit(data: UserSignup) {
-    try {
-      let user: User;
-
-      if (authType === "signup") {
-        user = await AuthApi.createUser(data);
-      } else {
-        user = await AuthApi.createUserSession(data);
-      }
-
-      navigate("/");
-    } catch (e) {
-      if (e instanceof Error) setError(e.message);
+  function onSubmit(data: UserSignup) {
+    if (authType === "signup") {
+      signup(data);
+    } else {
+      login(data);
     }
   }
 
@@ -59,11 +52,15 @@ function AuthForm({ authType }: AuthFormProps) {
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
-      {error && <p className={styles.networkErrorMessage}>{error}</p>}
       {authType === "signup" && (
         <div className={styles.formInput}>
           <RiUser3Fill className={styles.icon} />
-          <input {...register("username")} type="text" placeholder="Username" />
+          <input
+            {...register("username")}
+            type="text"
+            placeholder="Username"
+            disabled={isLoginPending || isSignupPending}
+          />
           <p className={styles.errorMessage}>{errors.username?.message}</p>
         </div>
       )}
@@ -75,6 +72,7 @@ function AuthForm({ authType }: AuthFormProps) {
           type="email"
           placeholder="Email"
           autoComplete="email"
+          disabled={isLoginPending || isSignupPending}
         />
         <p className={styles.errorMessage}>{errors.email?.message}</p>
       </div>
@@ -85,6 +83,7 @@ function AuthForm({ authType }: AuthFormProps) {
           {...register("password")}
           type={showPassword ? "text" : "password"}
           placeholder="Password"
+          disabled={isLoginPending || isSignupPending}
         />
         <button
           type="button"
@@ -102,6 +101,7 @@ function AuthForm({ authType }: AuthFormProps) {
           type="button"
           className={styles.guestButtonLink}
           onClick={handleGuestLogin}
+          disabled={isLoginPending || isSignupPending}
         >
           Demo the app with a guest login?
         </button>
@@ -111,8 +111,9 @@ function AuthForm({ authType }: AuthFormProps) {
         type="submit"
         className={styles.loginRegisterButton}
         ref={loginButtonRef}
+        disabled={isLoginPending || isSignupPending}
       >
-        {authType}
+        {isLoginPending || isSignupPending ? <SpinnerMini /> : authType}
       </button>
     </form>
   );

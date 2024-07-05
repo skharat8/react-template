@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 import type { AuthType } from "@/data/types";
 import AuthForm from "./AuthForm";
@@ -16,6 +17,7 @@ function Auth() {
 
   return (
     <div className={styles.container}>
+      <Toaster />
       <h2 className={styles.header}>{authType}</h2>
       <div className={styles.divider} />
       <AuthForm authType={authType} />

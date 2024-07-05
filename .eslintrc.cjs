@@ -16,6 +16,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react/jsx-runtime", // Disable React import requirement
     "plugin:jsx-a11y/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "prettier",
   ],
   settings: {
@@ -98,7 +99,7 @@ module.exports = {
           {
             target: [
               "./src/components",
-              "./src/context",
+              "./src/contexts",
               "./src/data",
               "./src/hooks",
               "./src/layouts",
