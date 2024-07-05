@@ -9,6 +9,7 @@
 }
 
 .header {
+  font-weight: 600;
   color: var(--primary-color);
 }
 
@@ -31,6 +32,8 @@
 
   position: relative;
   height: var(--form-element-height);
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 .formInput input {
@@ -49,7 +52,7 @@
 .formInput .icon {
   position: absolute;
   left: 15px;
-  height: var(--form-element-height);
+  height: inherit;
 }
 
 .formInput .icon.lock {
@@ -57,7 +60,7 @@
 }
 
 .formInput input:focus {
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   outline: none;
 }
 

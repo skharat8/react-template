@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
 @font-face {
   font-family: "chocolateWithBrownie";
   src: url(./fonts/chocolate-with-brownie.ttf);
@@ -86,6 +84,7 @@ body {
 
 .main-title {
   font-family: chocolateWithBrownie;
+  font-weight: bold;
   color: var(--secondary-color);
   text-align: center;
   margin-bottom: 0.3em;

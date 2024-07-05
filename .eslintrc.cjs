@@ -28,7 +28,14 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ["dist", ".eslintrc.cjs", "alias.cjs"],
+  ignorePatterns: [
+    "dist",
+    ".eslintrc.cjs",
+    "alias.cjs",
+    "tailwind.config.js",
+    "postcss.config.js",
+    "prettier.config.js",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
