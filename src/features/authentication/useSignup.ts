@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
@@ -6,12 +5,10 @@ import { createUser } from "@/services/apiAuth";
 import type { UserSignup } from "@/schemas/auth.zod";
 
 function useSignup() {
-  const navigate = useNavigate();
-
   const { mutate: signup, isPending: isSignupPending } = useMutation({
-    mutationFn: (data: UserSignup) => createUser(data),
+    mutationFn: (signupData: UserSignup) => createUser(signupData),
     onSuccess: () => {
-      navigate("/", { replace: true });
+      toast.success("Account successfully created! Please log in");
     },
     onError: err => {
       console.error(err);
