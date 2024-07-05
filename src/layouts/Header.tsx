@@ -1,5 +1,12 @@
+import LogoutButton from "@/features/authentication/LogoutButton";
+
 function Header() {
-  return <header>Twitter</header>;
+  return (
+    <header>
+      <p>Twitter</p>
+      <LogoutButton />
+    </header>
+  );
 }
 
 export default Header;

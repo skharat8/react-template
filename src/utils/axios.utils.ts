@@ -11,10 +11,6 @@ function createAxiosInstance() {
     res => res,
     err => {
       if (axios.isAxiosError<ResponseError>(err)) {
-        if (err.response?.status === 401) {
-          // TODO: signOut();
-        }
-
         return Promise.reject(
           new Error(err.response?.data.error ?? err.message)
         );

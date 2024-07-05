@@ -1,4 +1,3 @@
-import axios from "axios";
 import { userSchema } from "@/schemas/auth.zod";
 import type { User, UserLogin, UserSignup } from "@/schemas/auth.zod";
 import createAxiosInstance from "@/utils/axios.utils";

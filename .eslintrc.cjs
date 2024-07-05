@@ -92,7 +92,7 @@ module.exports = {
           // Enforce unidirectional codebase
           // e.g. src/features is not allowed to imports from src/pages
           {
-            target: "./src/features",
+            target: ["./src/features", "./src/layouts"],
             from: "./src/pages",
           },
 
@@ -102,12 +102,11 @@ module.exports = {
               "./src/contexts",
               "./src/data",
               "./src/hooks",
-              "./src/layouts",
               "./src/schemas",
               "./src/services",
               "./src/utils",
             ],
-            from: ["./src/features", "./src/pages"],
+            from: ["./src/features", "./src/pages", "./src/layouts"],
           },
         ],
       },
