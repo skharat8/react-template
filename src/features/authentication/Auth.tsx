@@ -20,7 +20,7 @@ function Auth() {
       <Toaster />
       <h2 className={styles.header}>{authType}</h2>
       <div className={styles.divider} />
-      <AuthForm authType={authType} />
+      <AuthForm authType={authType} onAuthToggle={onAuthToggle} />
       <AuthLink authType={authType} onAuthToggle={onAuthToggle} />
     </div>
   );

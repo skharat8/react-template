@@ -11,7 +11,7 @@ import styles from "./Auth.module.css";
 import useLogin from "./useLogin";
 import useSignup from "./useSignup";
 
-function AuthForm({ authType }: AuthFormProps) {
+function AuthForm({ authType, onAuthToggle }: AuthFormProps) {
   const validationSchema =
     authType === "login" ? userLoginSchema : userSignupSchema;
 
@@ -32,7 +32,15 @@ function AuthForm({ authType }: AuthFormProps) {
 
   function onSubmit(data: UserSignup) {
     if (authType === "signup") {
-      signup(data);
+      signup(data, {
+        onSuccess: () => {
+          // If user signup was successful, switch to log in screen.
+          setValue("username", "");
+          setValue("email", "");
+          setValue("password", "");
+          onAuthToggle();
+        },
+      });
     } else {
       login(data);
     }
@@ -121,6 +129,7 @@ function AuthForm({ authType }: AuthFormProps) {
 
 type AuthFormProps = {
   authType: AuthType;
+  onAuthToggle: () => void;
 };
 
 export default AuthForm;
