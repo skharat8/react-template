@@ -20,6 +20,7 @@ function AuthForm({ authType, onAuthToggle }: AuthFormProps) {
     handleSubmit,
     setValue,
     clearErrors,
+    reset,
     formState: { errors },
   } = useForm<UserSignup>({
     resolver: zodResolver(validationSchema),
@@ -35,9 +36,7 @@ function AuthForm({ authType, onAuthToggle }: AuthFormProps) {
       signup(data, {
         onSuccess: () => {
           // If user signup was successful, switch to log in screen.
-          setValue("username", "");
-          setValue("email", "");
-          setValue("password", "");
+          reset();
           onAuthToggle();
         },
       });
