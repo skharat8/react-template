@@ -1,16 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "chocolateWithBrownie";
   src: url(./fonts/chocolate-with-brownie.ttf);
 }
 
 :root {
-  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 62.5%;
-  line-height: 1.5;
-  box-sizing: border-box;
-  color-scheme: light dark;
-
-  /* Variables */
   --primary-color: #281c30;
   --secondary-color: #b63b63;
   --light-accent: #ddb39b;
@@ -34,6 +31,19 @@
   box-sizing: inherit;
   padding: 0;
   margin: 0;
+
+  /* For animation when switching to dark mode */
+  transition:
+    background-color 0.3s,
+    border 0.3s;
+}
+
+html {
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color-scheme: light dark;
 }
 
 body {
@@ -42,8 +52,12 @@ body {
   justify-content: center;
   align-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--primary-color);
+}
+
+img {
+  max-width: 100%;
 }
 
 .centered-container {
@@ -116,14 +130,12 @@ a:hover {
 button {
   font-size: 1.8rem;
   font-weight: 600;
-  font-family: inherit;
   background-color: var(--fire-orange);
   cursor: pointer;
   transition: all 0.25s;
   padding: 0.6em 1.2em;
   border: 2px solid transparent;
   border-radius: 8px;
-  outline: none;
 }
 
 .btn-link {
