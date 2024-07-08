@@ -8,9 +8,7 @@ function LogoutButton() {
   const { logout, isLogoutPending } = useLogout();
 
   return (
-    // NO_LINT
-    // @ts-expect-error Mutation function from React Query is ok to pass here.
-    <ButtonIcon disabled={isLogoutPending} onClick={logout}>
+    <ButtonIcon onClick={logout} disabled={isLogoutPending}>
       {isLogoutPending ? <SpinnerMini /> : <RiLogoutBoxRLine />}
     </ButtonIcon>
   );

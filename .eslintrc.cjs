@@ -91,6 +91,8 @@ module.exports = {
     "react/jsx-no-bind": ["error", { allowFunctions: true }],
     // Allow prop spreading on input elements when using react-hook-form
     "react/jsx-props-no-spreading": ["error", { exceptions: ["input"] }],
+    // defaultProps not required when using TypeScript
+    "react/require-default-props": "off",
 
     "import/no-restricted-paths": [
       "error",

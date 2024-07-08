@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RiUser3Fill, RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 
+import Button from "@/components/Button";
 import SpinnerMini from "@/components/SpinnerMini";
 import { userLoginSchema, userSignupSchema } from "@/schemas/auth.zod";
 import type { UserSignup } from "@/schemas/auth.zod";
@@ -54,7 +55,7 @@ function AuthForm({ authType, onAuthToggle }: AuthFormProps) {
   }
 
   function toggleShowPassword() {
-    setShowPassword(prevShowPassword => !prevShowPassword);
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   }
 
   return (
@@ -92,36 +93,36 @@ function AuthForm({ authType, onAuthToggle }: AuthFormProps) {
           placeholder="Password"
           disabled={isLoginPending || isSignupPending}
         />
-        <button
-          type="button"
+        <Button
+          variant="small-caps"
           className={styles.showPasswordBtn}
           onClick={toggleShowPassword}
         >
           {showPassword ? "Hide" : "Show"}
-        </button>
+        </Button>
 
         <p className={styles.errorMessage}>{errors.password?.message}</p>
       </div>
 
       {authType === "login" && (
-        <button
-          type="button"
-          className={styles.guestButtonLink}
+        <Button
+          variant="demo"
           onClick={handleGuestLogin}
           disabled={isLoginPending || isSignupPending}
         >
           Demo the app with a guest login?
-        </button>
+        </Button>
       )}
 
-      <button
+      <Button
         type="submit"
-        className={styles.loginRegisterButton}
+        variant="primary"
+        size="large"
         ref={loginButtonRef}
         disabled={isLoginPending || isSignupPending}
       >
         {isLoginPending || isSignupPending ? <SpinnerMini /> : authType}
-      </button>
+      </Button>
     </form>
   );
 }

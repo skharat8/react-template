@@ -10,8 +10,8 @@ function Auth() {
   const [authType, setAuthType] = useState<AuthType>("login");
 
   function onAuthToggle() {
-    setAuthType(prevAuthType =>
-      prevAuthType === "login" ? "signup" : "login"
+    setAuthType((prevAuthType) =>
+      prevAuthType === "login" ? "signup" : "login",
     );
   }
 

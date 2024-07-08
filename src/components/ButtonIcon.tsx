@@ -1,21 +1,21 @@
-import styled from "styled-components";
+function ButtonIcon({ onClick, disabled, children }: ButtonIconProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className="rounded-sm border-none bg-transparent p-3 transition hover:bg-pink-200
+        [&_svg]:h-9 [&_svg]:w-9 [&_svg]:text-secondary-400"
+    >
+      {children}
+    </button>
+  );
+}
 
-const ButtonIcon = styled.button`
-  background: none;
-  border: none;
-  padding: 0.6rem;
-  border-radius: var(--border-radius-sm);
-  transition: all 0.2s;
-
-  &:hover {
-    background-color: plum;
-  }
-
-  & svg {
-    width: 2.2rem;
-    height: 2.2rem;
-    color: var(--secondary-color);
-  }
-`;
+type ButtonIconProps = {
+  onClick: () => void;
+  disabled: boolean;
+  children: React.ReactNode;
+};
 
 export default ButtonIcon;

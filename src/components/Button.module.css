@@ -1,0 +1,70 @@
+.btnBase {
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  padding: 0.6em 1.2em;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+/* Primary */
+.btnPrimary {
+  margin-bottom: 0.2em;
+  background-color: theme(colors.fire-orange);
+}
+
+.btnPrimary:hover {
+  background-color: var(--fire-red);
+}
+.btnPrimary:hover,
+.btnPrimary:focus {
+  border-color: var(--primary-color);
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Link */
+.btnLink {
+  font-size: 1.6rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  color: theme(colors.link-color);
+}
+.btnLink:hover,
+.btnLink:focus {
+  color: theme(colors.link-color-hover);
+}
+
+/* Demo as Guest */
+.btnGuestDemo {
+  height: var(--form-element-height);
+  font-size: 1.45rem;
+  background-color: transparent;
+  border: 3px dotted var(--nearly-black);
+  padding: 0.6em 1.2em;
+}
+.btnGuestDemo:hover,
+.btnGuestDemo:focus {
+  color: purple;
+  background-color: plum;
+  font-weight: 600;
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+/* Small Caps */
+.btnSmallCaps {
+  position: absolute;
+  text-transform: uppercase;
+  color: rgba(27, 26, 26, 0.6);
+  background-color: transparent;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 0px;
+  border: none;
+}
