@@ -4,7 +4,9 @@ import {
   useNavigate,
 } from "react-router-dom";
 import axios from "axios";
+
 import type { ResponseError } from "@/data/types";
+import Button from "@/components/Button";
 
 function getErrorMessage(error: unknown): string {
   let msg: string;
@@ -42,9 +44,7 @@ function ErrorPage() {
         <i>{getErrorMessage(error)}</i>
       </p>
 
-      <button type="button" onClick={navigateBack}>
-        Go Back
-      </button>
+      <Button onClick={navigateBack}>Go Back</Button>
     </div>
   );
 }

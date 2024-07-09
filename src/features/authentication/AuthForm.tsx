@@ -117,7 +117,6 @@ function AuthForm({ authType, onAuthToggle }: AuthFormProps) {
       <Button
         type="submit"
         variant="primary"
-        size="large"
         ref={loginButtonRef}
         disabled={isLoginPending || isSignupPending}
       >

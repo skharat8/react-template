@@ -15,7 +15,7 @@ function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="h-dvh w-dvw bg-stone-200" style={styles}>
+    <div className="h-dvh w-dvw bg-neutral-200" style={styles}>
       {isLoading && <BeatLoader color="#b63b63" />}
       <Header />
 

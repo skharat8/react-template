@@ -15,12 +15,13 @@
 }
 
 .btnPrimary:hover {
-  background-color: var(--fire-red);
+  background-color: theme(colors.fire-red);
 }
 .btnPrimary:hover,
 .btnPrimary:focus {
-  border-color: var(--primary-color);
+  border-color: theme(colors.primary.700);
   box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.3);
+  outline: none;
 }
 
 /* Link */
@@ -42,7 +43,7 @@
   height: var(--form-element-height);
   font-size: 1.45rem;
   background-color: transparent;
-  border: 3px dotted var(--nearly-black);
+  border: 3px dotted theme(colors.nearly-black);
   padding: 0.6em 1.2em;
 }
 .btnGuestDemo:hover,
@@ -50,7 +51,7 @@
   color: purple;
   background-color: plum;
   font-weight: 600;
-  border-color: var(--secondary-color);
+  border-color: theme(colors.secondary.400);
   box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.2);
   outline: none;
 }

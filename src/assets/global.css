@@ -8,19 +8,8 @@
 }
 
 :root {
-  --primary-color: #281c30;
-  --secondary-color: #b63b63;
-  --light-accent: #ddb39b;
-  --dark-accent: #916f1c;
-  --fire-orange: #f47c07;
-  --fire-red: #f4541c;
-  --link-color: #646cff;
-  --link-color-hover: #535bf2;
-
   --card-padding-top-bottom: 1.6em;
   --card-padding-left-right: 2em;
-
-  --nearly-black: #242424;
 }
 
 *,
@@ -70,11 +59,11 @@ h2 {
 
 a {
   font-weight: 500;
-  color: var(--link-color);
+  color: theme(colors.link-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--link-color-hover);
+  color: theme(colors.link-color-hover);
 }
 
 ul {

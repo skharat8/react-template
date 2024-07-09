@@ -53,7 +53,7 @@ const LinearGradient3 = styled.div`
 
 function Title({ children }: PropsWithChildren) {
   return (
-    <h1 className="font-noticia text-4xl font-bold tracking-wide text-stone-300">
+    <h1 className="font-noticia text-4xl font-bold tracking-wide text-neutral-300">
       {children}
     </h1>
   );

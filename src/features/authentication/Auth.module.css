@@ -1,8 +1,8 @@
 .container {
   width: 420px;
   text-align: center;
-  color: var(--nearly-black);
-  background-color: var(--light-accent);
+  color: theme(colors.nearly-black);
+  background-color: theme(colors.light-accent.200);
   border-radius: 20px;
   padding: var(--card-padding-top-bottom) var(--card-padding-left-right);
   box-shadow: 0 0 10px 4px rgba(182, 59, 99, 0.5);
@@ -10,14 +10,14 @@
 
 .header {
   font-weight: 600;
-  color: var(--primary-color);
+  color: theme(colors.primary.700);
 }
 
 .divider {
   width: 15%;
   height: 3px;
   margin: 0.3em auto 0.7em;
-  background-color: var(--primary-color);
+  background-color: theme(colors.primary.700);
 }
 
 .formContainer {
@@ -32,7 +32,7 @@
 
   position: relative;
   height: var(--form-element-height);
-  border: 1px solid gray;
+  border: 1px solid theme(colors.primary.900);
   border-radius: 10px;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .formInput input:focus {
-  border: 1px solid var(--primary-color);
+  border: 1px solid theme(colors.primary.700);
   outline: none;
 }
 

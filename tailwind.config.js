@@ -1,3 +1,5 @@
+import colors from "tailwindcss/colors";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -29,6 +31,7 @@ export default {
           800: "hsl(342, 51%, 15%)",
           900: "hsl(342, 52%, 5%)",
         },
+        neutral: colors.gray,
         "light-accent": {
           100: "#ecd4c6",
           200: "#ddb39b",
@@ -37,6 +40,7 @@ export default {
         "fire-red": "#f4541c",
         "link-color": "#646cff",
         "link-color-hover": "#535bf2",
+        "nearly-black": "#242424",
       },
 
       fontFamily: {
