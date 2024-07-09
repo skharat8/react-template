@@ -40,7 +40,12 @@ export default {
       },
 
       fontFamily: {
-        chocolateWithBrownie: ["chocolateWithBrownie", "sans-serif"],
+        chocolateWithBrownie: ["chocolateWithBrownie", "serif"],
+        noticia: ["Noticia Text", "serif"],
+      },
+
+      dropShadow: {
+        logo: "0 0 2em theme(colors.secondary.500)",
       },
     },
   },

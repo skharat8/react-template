@@ -10,6 +10,7 @@ const rotate = keyframes`
 const SpinnerMini = styled(ImSpinner2)`
   width: 2.4rem;
   aspect-ratio: 1;
+  margin: 0 auto;
   animation: ${rotate} 1.5s infinite linear;
 `;
 

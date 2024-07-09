@@ -4,8 +4,8 @@ function ButtonIcon({ onClick, disabled, children }: ButtonIconProps) {
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="rounded-sm border-none bg-transparent p-3 transition hover:bg-pink-200
-        [&_svg]:h-9 [&_svg]:w-9 [&_svg]:text-secondary-400"
+      className="rounded-lg border-none bg-transparent p-2 transition hover:bg-secondary-200
+        [&_svg]:h-9 [&_svg]:w-9 [&_svg]:text-primary-900"
     >
       {children}
     </button>

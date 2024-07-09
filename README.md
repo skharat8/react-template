@@ -9,3 +9,7 @@
 - TypeScript
 
 ## Acknowledgements
+
+<a target="_blank" href="https://icons8.com/icon/57197/phoenix">Phoenix</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Avatar vectors by <a href="https://www.svgrepo.com" target="_blank">SVG Repo</a>
