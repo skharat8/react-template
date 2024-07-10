@@ -10,7 +10,7 @@ import {
 import NavbarItem from "@/components/NavbarItem";
 
 function Navbar() {
-  const iconSize = "1.3em";
+  const iconSize = "1.2rem";
 
   return (
     <nav className="flex border-t-2 border-primary-800">

@@ -38,8 +38,8 @@ export default {
         },
         "fire-orange": "#f47c07",
         "fire-red": "#f4541c",
-        "link-color": "#646cff",
-        "link-color-hover": "#535bf2",
+        "link-color": "hsl(237, 85%, 65%)",
+        "link-color-hover": "hsl(237, 86%, 45%)",
         "nearly-black": "#242424",
       },
 
@@ -51,6 +51,44 @@ export default {
       dropShadow: {
         logo: "0 0 2em theme(colors.secondary.500)",
       },
+
+      spacing: {
+        "2px": "2px",
+        "4px": "4px",
+        "6px": "6px",
+        "8px": "8px",
+        "10px": "10px",
+        "12px": "12px",
+        "14px": "14px",
+        "16px": "16px",
+        "20px": "20px",
+        "24px": "24px",
+        "28px": "28px",
+        "32px": "32px",
+        "36px": "36px",
+        "40px": "40px",
+        "44px": "44px",
+        "48px": "48px",
+        "56px": "56px",
+        "64px": "64px",
+        "80px": "80px",
+        "96px": "96px",
+      },
+    },
+
+    /**
+     * Default tailwind values converted from rem to px:
+     * */
+    borderRadius: {
+      none: "0px",
+      sm: "2px",
+      DEFAULT: "4px",
+      md: "6px",
+      lg: "8px",
+      xl: "12px",
+      "2xl": "16px",
+      "3xl": "24px",
+      full: "999px",
     },
   },
   plugins: [],

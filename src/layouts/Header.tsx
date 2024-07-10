@@ -53,7 +53,7 @@ const LinearGradient3 = styled.div`
 
 function Title({ children }: PropsWithChildren) {
   return (
-    <h1 className="font-noticia text-4xl font-bold tracking-wide text-neutral-300">
+    <h1 className="font-noticia text-2xl font-bold tracking-wide text-neutral-300">
       {children}
     </h1>
   );
@@ -62,12 +62,12 @@ function Title({ children }: PropsWithChildren) {
 function Header() {
   return (
     <LinearGradient2>
-      <header className="flex items-center justify-between px-8 py-4 shadow-md">
-        <Avatar />
+      <header className="px-16px py-8px flex items-center justify-between shadow-md">
+        <Avatar size="small" />
 
         <div className="flex items-center gap-2">
           <Title>Twitter</Title>
-          <Logo width="4rem" />
+          <Logo width="2.5rem" />
           <Title>Reborn</Title>
         </div>
 

@@ -1,7 +1,7 @@
 import logo from "@images/app-logo-96x96.png";
 
 function Logo({
-  width = "6.2rem",
+  width = "3.9rem",
   marginBottom = "",
   hasHoverEffect = false,
 }: LogoProps) {

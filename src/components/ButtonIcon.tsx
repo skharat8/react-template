@@ -1,11 +1,24 @@
-function ButtonIcon({ onClick, disabled, children }: ButtonIconProps) {
+import clsx from "clsx";
+
+function ButtonIcon({
+  onClick,
+  disabled,
+  hoverTwColor,
+  className,
+  children,
+}: ButtonIconProps) {
+  const hoverColor = hoverTwColor ?? "hover:bg-neutral-200";
+  const baseStyles = `rounded-lg p-2 transition ${hoverColor} [&_svg]:h-5
+  [&_svg]:w-5 [&_svg]:text-primary-900`;
+
+  const classNames = clsx(baseStyles, className);
+
   return (
     <button
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="rounded-lg border-none bg-transparent p-2 transition hover:bg-secondary-200
-        [&_svg]:h-9 [&_svg]:w-9 [&_svg]:text-primary-900"
+      className={classNames}
     >
       {children}
     </button>
@@ -14,7 +27,9 @@ function ButtonIcon({ onClick, disabled, children }: ButtonIconProps) {
 
 type ButtonIconProps = {
   onClick: () => void;
-  disabled: boolean;
+  disabled?: boolean;
+  hoverTwColor?: string;
+  className?: string;
   children: React.ReactNode;
 };
 
