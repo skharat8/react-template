@@ -11,12 +11,15 @@ function Card() {
   const gridStyles = {
     display: "grid",
     gridTemplateRows: "auto 1fr auto",
-    gridTemplateColumns: "3.25rem 1fr",
+    gridTemplateColumns: "auto 1fr",
     gridTemplateAreas: '"avatar header" ". text" ". buttons"',
   };
 
   return (
-    <div className="h-40 w-4/5 bg-neutral-300" style={gridStyles}>
+    <div
+      className="pt-card-tb px-card-lr h-40 w-4/5 rounded-md bg-zinc-300 shadow-md"
+      style={gridStyles}
+    >
       <Avatar />
       <h2 className="text-md font-semibold" style={{ gridArea: "header" }}>
         John Smith

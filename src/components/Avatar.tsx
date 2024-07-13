@@ -8,7 +8,7 @@ function Avatar({ size = "medium" }: AvatarProps) {
   };
 
   return (
-    <div className="overflow-hidden rounded-full bg-secondary-600 shadow-md">
+    <div className="bg-accentPink-600 overflow-hidden rounded-full shadow-sm">
       <img
         src={AvatarMale}
         alt="Profile Avatar"

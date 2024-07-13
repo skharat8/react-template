@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "test": "vitest",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "stylelint": "stylelint '**/*.css'",
     "preview": "vite preview",
     "prepare": "husky"
   },
@@ -60,6 +61,10 @@
     "prettier-plugin-classnames": "^0.7.0",
     "prettier-plugin-merge": "^0.7.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "stylelint": "^16.6.1",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-gamut": "^1.3.4",
     "tailwindcss": "^3.4.4",
     "tsx": "^4.15.7",
     "typescript": "^5.5.2",

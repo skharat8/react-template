@@ -1,73 +1,75 @@
 .btnBase {
+  padding: 10.5px 21px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s;
-  padding: 0.6em 1.2em;
   border-radius: 8px;
   outline: 2px solid transparent;
+  transition: all 0.25s;
 }
 
 /* Primary */
 .btnPrimary {
   margin-bottom: 0.2em;
-  background-color: theme(colors.fire-orange);
+  background-color: var(--fire-orange);
 }
 
 .btnPrimary:hover,
 .btnPrimary:focus {
-  background-color: theme(colors.fire-red);
-  border: theme(colors.primary.700);
-  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.3);
+  background-color: var(--fire-red);
+  border: var(--primary-700);
+  box-shadow: var(--shadow);
 }
 
 /* Link */
 .btnLink {
+  padding: 0;
   font-weight: 500;
+  color: var(--link-color);
   background: none;
   border: none;
-  padding: 0;
-  color: theme(colors.link-color);
 }
+
 .btnLink:hover,
 .btnLink:focus {
-  color: theme(colors.link-color-hover);
+  color: var(--link-color-hover);
 }
 
 .btnLink:focus {
   border-radius: 4px;
-  outline: 2px solid theme(colors.primary.600);
+  outline: 2px solid var(--primary-600);
 }
 
 /* Demo as Guest */
 .btnGuestDemo {
   height: var(--form-element-height);
+  padding: 10.5px 21px;
   font-size: 0.9rem;
   background-color: transparent;
-  border: 3px dotted theme(colors.nearly-black);
-  padding: 0.6em 1.2em;
+  border: 3px dotted var(--black);
+  outline: none;
 }
+
 .btnGuestDemo:hover,
 .btnGuestDemo:focus {
-  color: purple;
-  background-color: plum;
   font-weight: 600;
-  border-color: theme(colors.secondary.400);
-  box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.2);
-  outline: none;
+  color: var(--fire-red);
+  background-color: var(--primary-100);
+  border-color: var(--acc-pink-400);
+  box-shadow: var(--shadow);
 }
 
 /* Small Caps */
 .btnSmallCaps {
   position: absolute;
-  text-transform: uppercase;
-  color: rgba(27, 26, 26, 0.6);
-  background-color: transparent;
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
-  transform: translateY(-50%);
   top: 50%;
-  right: 0px;
+  right: 0;
+  font-size: 0.875rem;
+  color: var(--transparent-dark-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+  transform: translateY(-50%);
 }
 
 .btnSmallCaps:hover,

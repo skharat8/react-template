@@ -7,6 +7,7 @@ import axios from "axios";
 
 import type { ResponseError } from "@/data/types";
 import Button from "@/components/Button";
+import styles from "./ErrorPage.module.css";
 
 function getErrorMessage(error: unknown): string {
   let msg: string;
@@ -36,11 +37,11 @@ function ErrorPage() {
   }
 
   return (
-    <div className="error-page-container">
+    <div className={styles.errorPageContainer}>
       <h1 className="main-title">Oops!</h1>
 
       <p>Sorry, an unexpected error has occurred</p>
-      <p className="global-error-message">
+      <p className={styles.errorMessage}>
         <i>{getErrorMessage(error)}</i>
       </p>
 

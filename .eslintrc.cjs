@@ -32,9 +32,10 @@ module.exports = {
     "dist",
     ".eslintrc.cjs",
     "alias.cjs",
-    "tailwind.config.js",
     "postcss.config.js",
     "prettier.config.js",
+    "stylelint.config.js",
+    "tailwind.config.js",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
