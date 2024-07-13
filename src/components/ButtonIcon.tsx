@@ -7,7 +7,7 @@ function ButtonIcon({
   className,
   children,
 }: ButtonIconProps) {
-  const hoverColor = hoverTwColor ?? "hover:bg-neutral-200";
+  const hoverColor = hoverTwColor ?? "hover:bg-zinc-200";
   const baseStyles = `rounded-lg p-2 transition ${hoverColor} [&_svg]:h-5
   [&_svg]:w-5 [&_svg]:text-primary-900`;
 
